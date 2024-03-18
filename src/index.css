@@ -1,13 +1,166 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+:root{
+  --color-VeryDarkGray: hsl(0, 0%, 17%);
+  --color-DarkGray: hsl(0, 0%, 59%);
+  --color-White: hsl(0, 0%, 100%);
+  --color-Black: hsl(0, 0%, 0%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+/* UpperPart */
+
+.upperBackground{
+  height: 280px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upperBackground form {
+  display: flex; /* 添加这个样式让子元素水平排列 */
+  justify-content: center; /* 将表单内容居中 */
+}
+
+.upperBackground p {
+  color: var(--color-White);
+  font-weight: 500;
+  font-size: 30px;
+  margin: 30px;
+}
+
+.upperBackground input{
+  height: 55px;
+  width: 450px;
+  border-radius: 10px 0px 0px 10px;
+  border: none;
+  padding-left: 20px;
+  font-size: 18px;
+}
+
+.upperBackground button svg {
+  display: block; /* 这确保SVG在按钮内正确对齐 */
+  margin: auto; /* 这会将SVG在按钮内居中 */
+}
+
+
+.upperBackground button{
+  background-color: var(--color-Black);
+  height: 55px;
+  width: 55px;
+  border-radius: 0px 10px 10px 0px;
+  border: none;
+}
+
+/* MiddlePart */
+
+.infoPart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 180px;
+  width: 1200px;
+  transform: translate(10%, -50%);
+  background-color: var(--color-White);
+  border-radius: 10px;
+  position: relative; /* 相对定位 */
+  z-index: 2; /* 确保信息板在地图之上 */
+}
+
+.infoPart hr{
+  margin:50px 0px;
+
+}
+
+.row{
+  display: flex;
+  flex-direction: column;
+  width: 100%; /* 宽度可以设为100%，以便填满父容器 */
+  margin: 30px 50px 30px 30px;
+}
+
+.row .title{
+  color: var(--color-DarkGray);
+  font-weight: 500;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.row .info{
+  font-weight: 400;
+  font-size: 30px;
+}
+
+/* LowerPart */
+
+#mapPart {
+  height: 500px;
+  margin-top: -180px;
+  z-index: 1;
+}
+
+@media screen and (max-width: 720px) {
+  .upperBackground input{
+    height: 55px;
+    width: 250px;
+    border-radius: 10px 0px 0px 10px;
+    border: none;
+    padding-left: 20px;
+    font-size: 18px;
+  }
+
+  .infoPart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    width: 323px;
+    transform: translate(8%, -35%);
+    background-color: var(--color-White);
+    border-radius: 10px;
+    position: relative; /* 相对定位 */
+    z-index: 2; /* 确保信息板在地图之上 */
+  }
+  .infoPart hr{
+    border: none;
+  }
+  .row{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* 宽度可以设为100%，以便填满父容器 */
+    margin: 0px;
+    padding: 10px 0px 15px 0px;  
+  }
+  
+  .row .title{
+    color: var(--color-DarkGray);
+    font-weight: 500;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .row .info{
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  #mapPart {
+    height: 500px;
+    margin-top: -310px;
+    z-index: 1;
+  }
 }
