@@ -9,7 +9,7 @@ const cors = require('cors');
 
 const YOUR_API_KEY = process.env.API_KEY;
 
-  app.get('/get-ip-info', async (req, res) => {
+  app.get('/api/get-ip-info', async (req, res) => {
     const ip = req.query.ip;
     console.log(`Fetching info for IP: ${ip}`); // 記錄 IP 信息
     try {
