@@ -4,7 +4,7 @@ import MiddlePart from "./MiddlePart";
 import LowerPart from "./Lower";
 
 function App(){
-    // 创建状态来存储API数据
+    // Save the API data
     const [ipData, setIpData] = useState({
         ip: "",
         location: {
@@ -18,8 +18,7 @@ function App(){
         },
         isp: ""
     });
-
-    // 创建一个函数来更新状态，你会在获取API数据后调用这个函数
+    
     const updateIpData = (newData) => {
         setIpData(newData);
     };

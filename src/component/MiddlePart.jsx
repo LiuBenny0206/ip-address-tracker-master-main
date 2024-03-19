@@ -11,9 +11,8 @@ function MiddlePart({ data }){
             <div className="row">
                 <p className="title">LOCATION</p>
                 <p className="info">
-                    {data.location && data.location.city && data.location.region && data.location.postalCode
-                    ? `${data.location.city}, ${data.location.region} ${data.location.postalCode}`
-                    : <p>Taichung, Taiwan <br />12345</p>}
+                    {data.location ? `${data.location.city || 'Taichung'}, ${data.location.region || 'Taiwan'} ${data.location.postalCode || '00000'}`
+                    : 'Loading...'}
                 </p>
             </div>
             <hr></hr>
