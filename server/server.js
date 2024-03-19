@@ -7,9 +7,8 @@ const cors = require('cors');
 
 const YOUR_API_KEY = process.env.API_KEY;
 
-app.use(cors({
-    origin: 'https://ip-address-tracker-master-main.vercel.app'
-  }));
+app.use(cors());
+
 
   app.get('/get-ip-info', async (req, res) => {
     const ip = req.query.ip;
