@@ -5,7 +5,9 @@ const app = express();
 const axios = require('axios');
 const cors = require('cors');
 
-
+app.use(cors({
+    origin: 'https://ip-address-tracker-master-main.vercel.app/' // 只允许 localhost:3000 来的跨域请求
+  }));
 
 const YOUR_API_KEY = process.env.API_KEY;
 
