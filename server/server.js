@@ -15,7 +15,7 @@ app.use(cors({
     const ip = req.query.ip;
     console.log(`Fetching info for IP: ${ip}`); // 記錄 IP 信息
     try {
-        const response = await axios.get(`https://geo.ipify.org/api/v2/country,city?apiKey=${YOUR_API_KEY}&ipAddress=${encodeURIComponent(ip)}`);
+        const response = await axios.get(`https://geo.ipify.org/api/v2/country,city?apiKey=at_Z4jCuBFSlAmVcjb8PGoi2xRO04wrf&ipAddress=${encodeURIComponent(ip)}`);
         console.log(`Your API key is: ${YOUR_API_KEY}`);
         console.log('Data received:', response.data); // 記錄收到的數據
       res.json(response.data);
