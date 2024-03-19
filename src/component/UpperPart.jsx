@@ -5,22 +5,24 @@ function UpperPart({updateIpData}) {
     const [ip, setIp] = useState('');
 
     const handleSubmit = async (event) => {
-        event.preventDefault();
-        try {
-            const response = await fetch(`https://ip-address-tracker-master-main-liubenny0206s-projects.vercel.app/get-ip-info?ip=${ip}`);
-            if (response.ok) {
-              const data = await response.json();
-              console.log(data);
-              updateIpData(data);
-            } else {
-              // 如果響應狀態碼不是2xx, 將錯誤打印到控制台
-              console.error('Server response not OK:', response.statusText);
-              updateIpData({ error: response.statusText });
-            }
-          } catch (error) {
+    event.preventDefault();
+    try {
+        const response = await fetch(`https://ip-address-tracker-master-main-liubenny0206s-projects.vercel.app/get-ip-info?ip=${ip}`);
+        const contentType = response.headers.get('Content-Type');
+
+        if (response.ok && contentType && contentType.includes('application/json')) {
+            const data = await response.json();
+            console.log(data);
+            updateIpData(data);
+        } else {
+            // 如果響應的Content-Type不是application/json，或者響應狀態碼不是2xx
+            console.error('Unexpected response:', response.statusText);
+            updateIpData({ error: `Unexpected response type: ${contentType}` });
+        }
+        } catch (error) {
             console.error('Request failed', error);
             updateIpData({ error: error.message });
-          }
+        }
     };
     // backgroundSize: 'cover' 就算網頁拉很大也不會跑掉，而是會放大圖片來彌補不夠的區塊
     return (
