@@ -22,9 +22,9 @@ function UpperPart({updateIpData}) {
             updateIpData({ error: error.message });
           }
     };
-
+    // backgroundSize: 'cover' 就算網頁拉很大也不會跑掉，而是會放大圖片來彌補不夠的區塊
     return (
-        <section className="upperBackground" style={{background: `url(${DeskUpperMainPic})`}}>
+        <section className="upperBackground" style={{background: `url(${DeskUpperMainPic})`, backgroundSize: 'cover'}}>
             <p>IP Address Tracker</p>
             <form onSubmit={handleSubmit}>
                 <input

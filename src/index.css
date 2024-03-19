@@ -10,7 +10,12 @@
   padding: 0;
 }
 
+html {
+  height: 100%; /* This sets the reference for the body */
+}
+
 body {
+  height: 100%; /* 设置整个文档的高度 */
   margin: 0;
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
@@ -70,12 +75,13 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 180px;
-  width: 1200px;
-  transform: translate(10%, -50%);
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
   background-color: var(--color-White);
   border-radius: 10px;
   position: relative; /* 相对定位 */
+  top: -100px;
   z-index: 2; /* 确保信息板在地图之上 */
 }
 
@@ -105,13 +111,16 @@ body {
 
 /* LowerPart */
 
+.lowerPart{
+  height: 600px;
+}
 #mapPart {
-  height: 500px;
-  margin-top: -180px;
+  height: 100%;
+  margin-top: -220px;
   z-index: 1;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 950px) {
   .upperBackground input{
     height: 55px;
     width: 250px;
@@ -127,7 +136,6 @@ body {
     justify-content: center;
     height: 100%;
     width: 323px;
-    transform: translate(8%, -35%);
     background-color: var(--color-White);
     border-radius: 10px;
     position: relative; /* 相对定位 */
@@ -135,6 +143,7 @@ body {
   }
   .infoPart hr{
     border: none;
+    margin: 0;
   }
   .row{
     display: flex;
@@ -158,8 +167,9 @@ body {
     font-size: 20px;
   }
 
+
   #mapPart {
-    height: 500px;
+    height: 100%;
     margin-top: -310px;
     z-index: 1;
   }
