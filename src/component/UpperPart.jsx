@@ -10,6 +10,7 @@ function UpperPart({updateIpData}) {
             const response = await fetch(`https://ip-address-tracker-master-main.vercel.app/get-ip-info?ip=${ip}`);
             if (response.ok) {
               try {
+                 const data = await response.json();
                 updateIpData(data);
               } catch (error) {
                 updateIpData({ error: 'Invalid JSON format.' });
