@@ -9,8 +9,8 @@ const YOUR_API_KEY = process.env.API_KEY;
 
 app.use(cors());
 
-
   app.get('/get-ip-info', async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
     const ip = req.query.ip;
     console.log(`Fetching info for IP: ${ip}`); // 記錄 IP 信息
     try {
