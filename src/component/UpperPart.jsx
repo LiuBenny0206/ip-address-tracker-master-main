@@ -7,16 +7,7 @@ function UpperPart({updateIpData}) {
     const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-            const response = await fetch(`https://ip-address-tracker-backend.vercel.app/get-ip-info?ip=${ip}`, {
-              method: 'GET', // 如果您使用的是 GET 請求，這一行不是必須的，因為 GET 是 fetch 的預設方法
-              headers: {
-                'Content-Type': 'application/json',
-                // 其他需要的標頭
-              },
-              // 如果您想要包含 cookies 等認證信息，則需要以下設定，否則不應該設置 'include'
-              credentials: 'include' // or 'same-origin' 如果您的前後端是同源的
-            });
-
+            const response = await fetch(`https://ip-address-tracker-backend.vercel.app/get-ip-info?ip=${ip}`);
             if (response.ok) {
               const data = await response.json();
               console.log(data);
