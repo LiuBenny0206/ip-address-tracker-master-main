@@ -5,7 +5,7 @@ const app = express();
 const axios = require('axios');
 const cors = require('cors');
 
-const YOUR_API_KEY = process.env.API_KEY;
+const API_KEY = process.env.API_KEY;
 
  app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', 'https://ip-address-tracker-master-main.vercel.app');
