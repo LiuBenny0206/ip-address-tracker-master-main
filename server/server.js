@@ -7,19 +7,10 @@ const cors = require('cors');
 
 const YOUR_API_KEY = process.env.API_KEY;
 
-const corsOptions = {
-  origin: [
-    'https://ip-address-tracker-master-main.vercel.app',
-    'https://ip-address-tracker-backend.vercel.app/get-ip-info?ip=1.1.1.1',
-  ],
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-  allowedHeaders: ['Content-Type', 'Authorization'],
-};
-
-app.use(cors(corsOptions));
-
   app.get('/get-ip-info', async (req, res) => {
-    res.set('Access-Control-Allow-Origin', '*');
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type")
     const ip = req.query.ip;
     console.log(`Fetching info for IP: ${ip}`); // 記錄 IP 信息
     try {
