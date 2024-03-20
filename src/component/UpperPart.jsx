@@ -7,7 +7,7 @@ function UpperPart({updateIpData}) {
     const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-            const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_Z4jCuBFSlAmVcjb8PGoi2xRO04wrf&ipAddress=1.1.1.1`);
+            const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_Z4jCuBFSlAmVcjb8PGoi2xRO04wrf&ipAddress=${ip}`);
             if (response.ok) {
               try {
                  const data = await response.json();
