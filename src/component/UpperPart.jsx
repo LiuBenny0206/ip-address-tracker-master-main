@@ -4,10 +4,12 @@ import DeskUpperMainPic from '.././images/pattern-bg-desktop.png'; // 确保路�
 function UpperPart({updateIpData}) {
     const [ip, setIp] = useState('');
 
+    const API_KEY = process.env.REACT_APP_API_KEY;
+
     const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-            const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=at_Z4jCuBFSlAmVcjb8PGoi2xRO04wrf&ipAddress=${ip}`);
+        const response = await fetch(`https://geo.ipify.org/api/v2/country,city?apiKey=${API_KEY}&ipAddress=${ip}`);
             if (response.ok) {
               try {
                  const data = await response.json();
