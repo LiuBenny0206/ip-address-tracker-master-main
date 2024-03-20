@@ -8,13 +8,20 @@ function UpperPart({updateIpData}) {
     event.preventDefault();
     try {
             const response = await fetch(`https://ip-address-tracker-master-main.vercel.app/get-ip-info?ip=${ip}`);
+            const text = await response.text(); // 首先获取响应文本
             if (response.ok) {
-              const data = await response.json();
-              console.log(data);
-              updateIpData(data);
+              try {
+                const data = JSON.parse(text); // 尝试将文本解析为 JSON
+                console.log(data);
+                updateIpData(data);
+              } catch (error) {
+                console.error('Error parsing JSON:', error);
+                updateIpData({ error: 'Invalid JSON format.' });
+              }
             } else {
-              // 如果響應狀態碼不是2xx, 將錯誤打印到控制台
+              // 如果響應狀態碼不是2xx, 将錯誤打印到控制台
               console.error('Server response not OK:', response.statusText);
+              console.error('Response received:', text);
               updateIpData({ error: response.statusText });
             }
           } catch (error) {
