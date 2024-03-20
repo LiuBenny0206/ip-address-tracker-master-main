@@ -7,7 +7,7 @@ function UpperPart({updateIpData}) {
     const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-            const response = await fetch(`https://ip-address-tracker-backend.vercel.app/get-ip-info?ip=${ip}`);
+            const response = await fetch(`https://ip-address-tracker-master-main.vercel.app/get-ip-info?ip=${ip}`);
             if (response.ok) {
               const data = await response.json();
               console.log(data);
