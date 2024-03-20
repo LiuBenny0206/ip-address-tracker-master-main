@@ -7,8 +7,9 @@ function UpperPart({updateIpData}) {
     const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-            const response = await fetch(`https://ip-address-tracker-master-main.vercel.app/get-ip-info?ip=${ip}`);
+            const response = await fetch(`http://ip-address-tracker-master-main.vercel.app/get-ip-info?ip=${ip}`);
             const text = await response.text(); // 首先获取响应文本
+            console.log(text)
             if (response.ok) {
               try {
                 const data = JSON.parse(text); // 尝试将文本解析为 JSON
